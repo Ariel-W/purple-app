@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding ion-text-left is-hero">
+    <h1 class="ion-no-margin">Hi Danny, You've got new challenges!</h1>
+  </div>
+  <ion-grid class="is-grid is-grid-tiles is-grid-bordered ion-no-padding">
+    <ion-row class="ion-padding">
+      <ion-col size="5">
+        <h3>
+          <span>Green Points</span>
+          3,642
+        </h3>
+      </ion-col>
+      <ion-col size="7" class="ion-no-padding">
+        <ion-row>
+          <h3>-> V-Bucks<span class="ion-float-right">235</span></h3>
+        </ion-row>
+        <ion-row>
+          <h3>-> Coins<span class="ion-float-right">357</span></h3>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list class="ion-padding is-list-colored">
+    <ion-item>
+      <ion-label>
+        <h2>Recycle</h2>
+      </ion-label>
+      <div slot="end">
+        <h3 class="ion-no-margin">7 Bottles</h3>
+      </div>
+      <div slot="end">
+        <h2 class="ion-no-margin">1,400 GP</h2>
+      </div>
+      <div slot="end" class="is-list-colored-button-group">
+        <ion-button fill="clear" class="ion-no-padding ion-align-self-center">
+          <ion-icon ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Recycle</h2>
+      </ion-label>
+      <div slot="end">
+        <h3 class="ion-no-margin">12 Containers</h3>
+      </div>
+      <div slot="end">
+        <h2 class="ion-no-margin">820 GP</h2>
+      </div>
+      <div slot="end" class="is-list-colored-button-group">
+        <ion-button fill="clear" class="ion-no-padding ion-align-self-center">
+          <ion-icon ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Save Water</h2>
+      </ion-label>
+      <div slot="end">
+        <h3 class="ion-no-margin">3 Weeks</h3>
+      </div>
+      <div slot="end">
+        <h2 class="ion-no-margin">600 GP</h2>
+      </div>
+      <div slot="end" class="is-list-colored-button-group">
+        <ion-button fill="clear" class="ion-no-padding ion-align-self-center">
+          <ion-icon ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <canvas
+      baseChart
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"
+    ></canvas>
+  </div>
+
+  <table class="table table-responsive table-condensed">
+    <tr>
+      <th *ngFor="let label of lineChartLabels"></th>
+    </tr>
+    <tr *ngFor="let d of lineChartData">
+      <td *ngFor="let label of lineChartLabels; let j=index"></td>
+    </tr>
+  </table>
+</ion-content>
